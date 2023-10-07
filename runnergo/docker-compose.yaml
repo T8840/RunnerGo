@@ -1,0 +1,131 @@
+version: "3"
+services:
+  mysql-db:
+    image: registry.cn-beijing.aliyuncs.com/runnergo/mysql:5.7.40.v1
+    env_file:
+      - ./config.env
+    volumes:
+      - ./mysql/mysql.sql:/docker-entrypoint-initdb.d/mysql.sql:ro
+      - ./mysql/data:/var/lib/mysql
+    restart: always
+    networks:
+      - apipost_net
+  redis-db:
+    image: registry.cn-beijing.aliyuncs.com/runnergo/redis:6.2.7
+    volumes:
+      - ./redis/data:/data
+    command:  redis-server --requirepass  mypassword
+    restart: always
+    networks:
+      - apipost_net
+  mongo-db:
+    image: registry.cn-beijing.aliyuncs.com/runnergo/mongo:4.4
+    env_file:
+      - ./config.env
+    volumes:
+      - ./mongo/data:/data/db
+      - ./mongo/init-mongo.sh:/docker-entrypoint-initdb.d/init-mongo.sh
+    restart: always
+    networks:
+      - apipost_net
+  manage:
+    image: registry.cn-beijing.aliyuncs.com/runnergo/manage:releases-v2.0.1
+    restart: always
+    env_file:
+      - ./config.env
+    networks:
+      - apipost_net
+    ports:
+      - "58889:30000"
+    depends_on:
+      - mysql-db
+  manage-ws:
+    image: registry.cn-beijing.aliyuncs.com/runnergo/manage-ws:releases-v2.0.1
+    restart: always
+    env_file:
+      - ./config.env
+    networks:
+      - apipost_net
+    ports:
+      - "58887:30000"
+    depends_on:
+      - mysql-db
+  web-ui:
+    image: registry.cn-beijing.aliyuncs.com/runnergo/web-ui:releases-v2.0.1
+    restart: always
+    ports:
+      - "9999:81"
+      - "58888:82"
+    networks:
+      - apipost_net
+  engine:
+    image: registry.cn-beijing.aliyuncs.com/runnergo/engine:releases-v2.0.1
+    restart: always
+    env_file:
+      - ./config.env
+    networks:
+      - apipost_net
+  file-server:
+    image: registry.cn-beijing.aliyuncs.com/runnergo/file-server:releases-v1.0.1
+    restart: always
+    env_file:
+      - ./config.env
+    volumes:
+      - ./file-server/data:/app/file-server/file
+    networks:
+      - apipost_net
+  zookeeper:
+      image: registry.cn-beijing.aliyuncs.com/runnergo/zookeeper:latest 
+      restart: always
+      networks:
+        - apipost_net
+  kafka:
+    image: registry.cn-beijing.aliyuncs.com/runnergo/kafka:2.13-3.2.1 
+    restart: always
+    depends_on:
+        - zookeeper
+    env_file:
+        - ./config.env
+    networks:
+      - apipost_net
+  collector:
+      image: registry.cn-beijing.aliyuncs.com/runnergo/collector:releases-v2.0.1
+      restart: always
+      env_file:
+        - ./config.env
+      networks:
+        - apipost_net
+      depends_on:
+        - kafka
+  admin-fe:
+    image: registry.cn-beijing.aliyuncs.com/runnergo/admin-fe:releases-v2.0.0
+    restart: always
+    ports:
+      - "9998:81"
+    networks:
+      - apipost_net
+  permission:
+    image: registry.cn-beijing.aliyuncs.com/runnergo/permission:releases-v2.0.1
+    restart: always
+    env_file:
+      - ./config.env
+    networks:
+      - apipost_net
+    ports:
+      - "58890:30000"
+    depends_on:
+      - mysql-db
+  mock:
+    image: registry.cn-beijing.aliyuncs.com/runnergo/mock:releases-v2.0.0
+    restart: always
+    env_file:
+      - ./config.env
+    networks:
+      - apipost_net
+    ports:
+      - "58900:30000"
+      - "58901:30001"
+      - "58903:30003"
+networks:
+  apipost_net:
+    driver: bridge

@@ -1,0 +1,48 @@
+.member-admin-manage {
+  display: flex;
+  height: 100%;
+  .arco-pagination-jumper{
+    input{
+      border: 1px solid var(--border-line-1) !important;;
+    }
+  }
+  .arco-pagination .arco-select-view{
+    border: 1px solid var(--border-line-1) !important;
+  }
+  &>.left{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding-top: 6px;
+    .title{
+      font-size: 16px;
+      font-weight: 600;
+    }
+    &>.operation{
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+      margin-bottom: 20px;
+      .r{
+        .company_export_member,
+        .arco-btn-outline{
+          margin-left: 20px;
+        }
+      }
+    }
+    .arco-tabs-header-scroll{
+      .arco-tabs-header-extra{
+        font-size: 12px;
+      }
+    }
+    .arco-pagination{
+      margin-top: auto;
+    }
+  }
+  &>.right {
+    width: 356px;
+    background: var(--module);
+    border-radius: 6px;
+    padding: 20px;
+  }
+}

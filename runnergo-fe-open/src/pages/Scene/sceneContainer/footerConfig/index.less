@@ -1,0 +1,149 @@
+.footer-config {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 10;
+
+  svg {
+    fill: var(--font-1);
+    
+  }
+
+  .default-tool-icon {
+    cursor: pointer;
+    color: var(--font-1);
+    width: 18px;
+    height: 18px;
+  }
+
+  .add-pre-condition {
+    display: flex;
+    margin-top: 10px;
+    margin-right: 70%;
+
+    .create,
+    .import {
+      min-width: 64px;
+      height: 24px;
+      border-radius: 3px;
+      background-color: var(--border-line);
+      color: var(--font-1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+
+      svg {
+        width: 16px;
+        height: 16px;
+        fill: var(--font-1);
+        margin-right: 4px;
+      }
+    }
+
+    .create {
+      margin-right: 8px;
+    }
+  }
+
+  .add-controller {
+    display: flex;
+    margin-top: 10px;
+
+    .assert,
+    .wait,
+    .condition {
+      min-width: 88px;
+      height: 24px;
+      box-sizing: border-box;
+      padding: 0 10px;
+      display: flex;
+      align-items: center;
+      border-radius: 3px;
+      margin: 0 4px;
+      cursor: pointer;
+
+      svg {
+        width: 16px;
+        height: 16px;
+        margin-right: 6px;
+      }
+
+      span {
+        white-space: nowrap;
+      }
+    }
+
+    .assert {
+      background: #ffefef;
+      border: 1px solid #ac0000;
+      color: #ac0000;
+
+      svg {
+        fill: #ac0000;
+      }
+    }
+
+    .wait {
+      background: #f6fff2;
+      border: 1px solid #068d3c;
+      color: #068d3c;
+
+      svg {
+        fill: #068d3c;
+      }
+    }
+
+    .condition {
+      background: #ffe9dc;
+      border: 1px solid #d75207;
+      color: #d75207;
+
+      svg {
+        fill: #d75207;
+      }
+    }
+  }
+
+  .common-config {
+    // width: 360px;
+    min-width: 616px;
+    height: 32px;
+    padding: 8px 10px;
+    background: var(--border-line);
+    border-radius: 4px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .config-item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--font-1);
+      cursor: pointer;
+
+      svg {
+        width: 16px;
+        height: 16px;
+        fill: var(--font-1);
+        margin-right: 4px;
+      }
+      span {
+        white-space: nowrap;
+      }
+    }
+
+    .line {
+      height: 20px;
+      width: 0;
+      border: 1px solid var(--scene-select);
+      margin: 0 12px;
+    }
+  }
+}

@@ -1,0 +1,398 @@
+#root {
+  * {
+    outline: none;
+  }
+
+  div,
+  li,
+  p,
+  ul {
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+  }
+
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--background-color-primary);
+
+  .section-page {
+    flex: 1;
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    background-color: var(--bg);
+
+    .main-page {
+      flex: 1;
+      border-radius: var(--border-radius-default);
+      overflow-y: scroll;
+      // overflow: hidden;
+      max-height: calc(100vh - 50px);
+      height: calc(100vh - 50px);
+      padding-right: 10px;
+      padding-left: 10px;
+    }
+
+    .recycle {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+    }
+  }
+
+  .text-ellipsis {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+}
+
+img {
+  object-fit: cover;
+}
+
+// reset 组件库
+svg {
+  // background-color: transparent !important;
+}
+
+.monaco-editor .margin {
+  background-color: var(--module) !important;
+}
+
+.monaco-editor,
+.monaco-editor-background,
+.monaco-editor .inputarea.ime-input {
+  background-color: var(--module) !important;
+}
+
+
+::-webkit-scrollbar-corner {
+  background-color: transparent !important;
+}
+
+.split-bar {
+  background-color: transparent !important;
+}
+
+.split-item:hover {
+  .split-bar {
+    background-color: var(--theme-color) !important;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.api-page-warper>.apipost-tabs-header {
+  height: 30px;
+  background-color: var(--background-color-primary);
+  // border-top: 1px solid var(--border-color-default);
+  // border-bottom: 1px solid var(--border-color-default);
+
+  .apipost-btn {
+    height: 28px;
+    line-height: 28px;
+    width: 28px;
+  }
+}
+
+
+
+.apis-tooltip {
+  background-color: var(--select-hover) !important;
+  color: var(--font-1) !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+::-webkit-input-placeholder {
+  color: var(--font-2) !important;
+}
+
+
+
+.tabs-item.active {
+  position: relative;
+  border-bottom: none !important;
+
+  &::before {
+    content: "";
+    width: 100%;
+    height: 2px;
+
+    background-image: radial-gradient(65.2% 1878.95% at 47.3% 100%, #3C63EC 0%, rgba(58, 113, 255, 0) 100%);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+}
+
+
+
+
+.api-tabs-dropdown {
+  background-color: var(--bg) !important;
+  border: none !important;
+  box-sizing: none !important;
+}
+
+.api-tabs-dropdown-item:hover {
+  background-color: var(--module) !important;
+}
+
+
+
+
+
+
+
+.slideDynamicOrigin-enter-done {
+  // z-index: 9999 !important;
+}
+
+
+
+
+
+
+// .welcome-page
+.welcome-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  background-color: var(--module);
+
+  .newTarget {
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+
+    .apipost-btn {
+      // border: var(--border-color-default) 1px solid;
+      background-color: var(--border-line);
+      width: 160px;
+      height: 200px;
+      border-radius: var(--border-radius-default);
+      margin: 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+
+      svg {
+        width: 32px;
+        height: 32px;
+        fill: var(--font-1);
+      }
+
+      h3 {
+        color: var(--font-1);
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        text-align: center;
+        width: 100%;
+        background-color: var(--scene-border);
+        font-weight: 600;
+        line-height: 48px;
+        border-bottom-left-radius: 4px;
+        border-bottom-right-radius: 4px;
+        font-size: var(--size-14px);
+
+        &:hover {
+          color: var(--content-color-primary);
+
+          svg {
+            fill: var(--content-color-primary);
+          }
+        }
+      }
+    }
+
+    .apipost-btn:hover {
+      h3 {
+        background-color: var(--select-hover);
+      }
+    }
+  }
+
+  .importProject {
+    flex: 1;
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    margin-top: 36px;
+
+    .apipost-btn {
+      // background-color: var(--background-color-tertiary);
+      font-size: 14px;
+      width: 130px;
+      font-weight: 600;
+      height: 36px;
+    }
+  }
+}
+
+// method color
+.menu-type {
+  min-width: 48px;
+}
+
+.method {
+  color: var(--content-color-primary);
+  font-size: var(--size-12px);
+  margin-left: 4px;
+
+
+  &.post {
+    color: var(--base-color-warning);
+  }
+
+  &.get {
+    color: var(--base-color-success);
+  }
+
+  &.put {
+    color: var(--base-color-info);
+  }
+
+  &.delete {
+    color: var(--base-color-error);
+  }
+
+  &.mysql {
+    color: var(--mysql);
+  }
+
+  &.tcp {
+    color: var(--tcp);
+  }
+
+  &.ws {
+    color: var(--ws);
+  }
+
+  &.mqtt {
+    color: var(--mqtt);
+  }
+
+  &.dubbo {
+    color: var(--dubbo);
+  }
+
+  &.oracle {
+    color: var(--oracle);
+  }
+
+  &.pgsql {
+    color: var(--postgresql);
+  }
+}
+
+// 响应区样式
+.response_count_total {
+  color: var(--base-color-success);
+}
+
+.apipost-tabs-response-header {
+  height: 31px;
+
+  .apipost-tabs-response-select {
+    height: 25px;
+    margin: 0 8px;
+    border: 0;
+  }
+}
+
+
+// 空测试用例
+.grpc-empty-content {
+  flex: 1;
+}
+
+.api-run-empty,
+.api-grpc-empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 35vh;
+
+  em {
+    padding: 24px;
+  }
+
+  .apipost-blue-btn {
+    width: 160px;
+  }
+}
+
+// .err_desc_go_index
+.err_desc_go_index {
+  line-height: 2em;
+}
+
+.apipost-btn-primary {
+  border-radius: 5px;
+  color: var(--common-white);
+  background: var(--theme-color);
+}

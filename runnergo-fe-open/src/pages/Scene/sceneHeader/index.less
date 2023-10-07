@@ -1,0 +1,100 @@
+.scene-header {
+    display: flex;
+    justify-content: space-between;
+    height: 57px;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 9px 16px;
+    color: var(--font-1);
+    border-bottom: 1px solid var(--border-line);
+    background-color: var(--module);
+    &-left {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+
+        .name {
+            font-size: 14px;
+            max-width: 200px;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        
+        .desc {
+            margin-top: 8px;
+            color: var(--font-2);
+            max-width: 62vw;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+    }
+    &-right {
+        display: flex;
+        align-items: center;
+
+        .config {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            white-space: nowrap;
+            min-width: 84px;
+            background-color: var(--border-line);
+            border-radius: 3px;
+            height: 32px;
+
+            svg {
+                width: 16px;
+                height: 16px;
+                fill: var(--font-1);
+                margin-right: 6px;
+            }
+        }
+        .saveBtn {
+            min-width: 60px;
+            height: 32px;
+            padding: 8px;
+            background-color: var(--theme-10) !important;
+            border: none !important;
+            color: var(--theme-color) !important;
+            margin-left: 8px;
+
+            svg {
+                width: 16px;
+                height: 16px;
+                fill: var(--theme-color);
+                margin-right: 6px;
+            }
+        }
+        .stopBtn, .runBtn {
+            width: 82px;
+            height: 32px;
+            padding: 8px;
+            background-color: var(--sub-color-1-10) !important;
+            border: none !important;
+            color: var(--sub-color-1) !important;
+            margin-left: 8px;
+
+            svg {
+                width: 16px;
+                height: 16px;
+                fill: var(--sub-color-1) !important;
+                margin-right: 6px;
+            }
+        }
+        
+        .stopBtn {
+            background-color: var(--sub-color-4-10) !important;
+            border: none;
+            border-radius: 3px;
+            color: var(--sub-color-4) !important;
+            svg {
+                width: 14px;
+                height: 14px;
+                fill: var(--sub-color-4) !important;
+            }
+        }
+    }
+}
